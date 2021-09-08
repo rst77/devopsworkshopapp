@@ -14,7 +14,7 @@ docker build . -t devopsapp:latest
 
 echo "Aplicando tags de imagem..."
 
-docker tag $(docker images -q devopsapp:latest) $(oci iam region-subscription list | grep -oP '(?<="region-key": ")[^"]*' | tr [:upper:] [:lower:]).ocir.io/$(oci os ns get | grep -oP '(?<="data": ")[^"]*')/devopsworkshop/devopsapp:latest
+docker tag $(docker images -q devopsapp:latest) iad.ocir.io/$(oci os ns get | grep -oP '(?<="data": ")[^"]*')/devopsworkshop/devopsapp:latest
 
 echo "Enviando imagem para repositório..."
 
